@@ -1,0 +1,422 @@
+body {
+    overflow-x: hidden;
+    margin: 0;
+}
+/*FIRST SECTION*/
+header {
+    height: 100vh;
+    width: 100vw;
+    background-image: url('/landing_bg.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.nav-container{
+    display: flex;
+    padding: 20px;
+}
+nav ul li a{
+    text-decoration: none;
+    color: white;
+    transition: 0.25s ease-in-out;
+}
+nav ul li a:hover{
+    color: #FFAE42;
+    text-decoration: underline;
+}
+nav ul li{
+    display: inline-block;
+    margin: 15px 60px;
+    font-family: 'Kumbh Sans';
+}
+.business-name {
+    color: white;
+    font-size: 1.5rem;
+    font-family: 'Kumbh Sans';
+    margin-left: 75px;
+    margin-right: 225px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+hr{
+    margin: 0px 50px;
+}
+.tagline{
+    font-size: 45px;
+    font-family: 'Poppins';
+    font-weight: 500;
+    color: white;
+    margin-left: 75px;
+}
+.order-now {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    text-decoration: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    border: none;
+    background-color: #FFAE42;
+    cursor: pointer;
+    transition: 0.25s ease-in-out;
+    display: inline-block;
+    margin-left: 75px;
+}
+.order-now a{
+    text-decoration: none;
+    color: white;
+}
+.order-now:hover {
+    background-color: #eb982b;
+}
+
+/*SECOND SECTION*/
+.container-1 {
+    width: 100vw;
+    height: 100vh;
+    margin-top: 100vh;
+    position: relative;
+    background-color: #FDFAED;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.img-1{
+    margin-top: 20px;
+}
+.learn-more {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    text-decoration: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    border: none;
+    background-color: #FFAE42;
+    cursor: pointer;
+    transition: 0.25s ease-in-out;
+    display: inline-block;
+}
+.learn-more a{
+    text-decoration: none;
+    color: white;
+}
+.learn-more:hover {
+    background-color: #eb982b;
+}
+.about-container{
+    margin-left: 40px;
+}
+.sizzling{
+    font-family: 'Inter';
+    font-weight: 500;
+    font-size: 16px;
+    color: #FFAE42;
+}
+.tag{
+    margin: 0;
+    font-family: 'Poppins';
+    font-weight: 300;
+    font-size: 40px;
+    font-weight: 600;
+    color: #1A1A1A;
+}
+.desc, .about-desc{
+    font-family: 'Inter';
+    color: #47392E;
+    opacity: 0.7;
+}
+/*THIRD SECTION*/
+.container-2 {
+    padding-top: 8vh;
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    background-color: #FDFAED;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.why{
+    font-family: 'Poppins';
+    font-weight: 500;
+    color: #1A1A1A;
+}
+.reason{
+    font-family: 'Inter';
+    opacity: 0.5;
+    color: #1A1A1A;
+    margin-bottom: 30px;
+}
+/*FOURTH SECTION*/
+.container-3 {
+    width: 100vw;
+    height: 100vh;
+    margin-top: 65vh;
+    position: relative;
+    background-image: url('/feedback_bg.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.group-1 {
+    display: flex;
+    gap: 20px;
+}
+.feedback-container {
+    display: flex;
+    flex-direction: column; 
+    margin-top: 20px;
+    margin-left: 30px;
+}
+.feedback-container p{
+    color: #47392E;
+    opacity: 0.7;
+    font-family: 'Inter';
+}
+.feedback-container input {
+    border: none; 
+    border-bottom: 0.85px solid #47392E;
+    background: none;
+    margin-top: 10px;
+    padding: 10px;
+    outline: none; 
+    font-family: 'Inter';
+}
+.feedback-container input:focus {
+    border-bottom: 0.85px solid #47392E;
+    outline: none;
+}
+.feedback-container input::placeholder{
+    color: #47392E;
+    opacity: 0.7;
+}
+.feedback-container h1 {
+    font-family: 'Poppins';
+    font-size: 40px;
+    font-weight: 600;
+    color: #1A1A1A;
+    margin: 0;
+}
+.feedback-submit{
+    margin-top: 20px;
+    width: 100px;
+    padding: 8px;
+    background: none;
+    border-radius: 5px;
+    font-family: 'Inter';
+    color: #FDFAED;
+    border: solid 2px #FDFAED;
+    cursor: pointer;
+}
+/*FIFTH SECTION*/
+.container-4 {
+    width: 100vw;
+    height: 95vh;
+    position: relative;
+    background-image: url('/img_3.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+}
+.container-4 h1{
+    margin-top: 75px;
+    margin-bottom: 10px;
+    font-family: 'Poppins';
+    font-weight: 400;
+    color: #FDFAED;
+}
+.container-4 h4{
+    margin: 0;
+    font-family: 'Inter';
+    font-weight: 400;
+    color: #F5F7FA;
+    opacity: 0.7;
+}
+.slider-container {
+    position: relative;
+    width: 90vw;
+    overflow: hidden;
+    margin-top: 100px;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+.slider-wrapper {
+    width: 100%;
+    overflow: hidden;
+}
+
+.slider {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+.slide {
+    flex: 0 0 100%;
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.prev-btn, .next-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    font-size: 40px;
+    transition: 0.3s ease-in-out;
+}
+
+.prev-btn:hover, .next-btn:hover{
+    color: #FFAE42;
+}
+.prev-btn { left: 10px;  z-index: 2;}
+.next-btn { right: 10px; }
+.hello-world{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.feedback-1{
+    text-align: left;
+    color: white;
+    font-family: 'Inter';
+    font-weight: 300;
+    margin-right: 100px;
+}
+.feedback-1 h4{
+    font-family: 'Inter';
+    font-size: 20px;
+    color: white;
+    opacity: 1;
+}
+/*SIXTH SECTION*/
+.container-5 {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    background-color: #FDFAED;
+    text-align: center;
+    padding-top: 20px;
+}
+.container-5 h1{
+    margin-top: 75px;
+    margin-bottom: 10px;
+    font-family: 'Poppins';
+    font-weight: 400;
+    color: #1A1A1A;
+}
+.container-5 h4{
+    margin: 0;
+    font-family: 'Inter';
+    font-weight: 400;
+    color: #1A1A1A;
+    opacity: 0.5;
+}
+.dropdown-container {
+    width: 900px;
+    border: 1px solid #B1B1B1;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    margin: 20px auto;
+}
+
+.dropdown-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 20px;
+    background-color: #FFFEF7;
+    color: #1A1A1A;
+}
+.dropdown-header h3{
+    font-family: 'Inter';
+    font-weight: 500;
+    font-size: 18px;
+}
+.arrow {
+    transition: transform 0.4s ease;
+}
+.arrow.open {
+    transform: rotate(180deg);
+}
+.dropdown-content {
+    text-align: left;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-in-out, padding 0.4s ease;
+    background-color: #FFFEF7;
+    padding: 0 15px;
+    color: rgba(26, 26, 26, 0.507);
+}
+.dropdown-content p{
+    font-family: 'Inter';
+    font-weight: 450;
+    font-size: 16px;
+}
+.dropdown-content.show {
+    max-height: 125px;
+    padding: 12px 20px;
+}
+/*SEVENTH SECTION*/
+.container-6 {
+    width: 100vw;
+    margin-top: 20vh;
+    position: relative;
+    background-color: #FDFAED;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.container-6 img{
+    height: 500px;
+    width: 700px;
+    margin: 0;
+}
+.container-6 h1{
+    font-family: 'Poppins';
+    font-weight: 500;
+    color: #1A1A1A;
+    margin: 0;
+}
+.container-6 p{
+    font-family: 'Inter';
+    font-weight: 500;
+    color: #1A1A1A;
+}
+.container-6 button {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    text-decoration: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    border: none;
+    background-color: #FFAE42;
+    cursor: pointer;
+    transition: 0.25s ease-in-out;
+    color: white;
+}
+.container-6 button:hover {
+    background-color: #eb982b;
+}
+/*FOOTER SECTION*/
+footer{
+    margin-top: 20vh;
+    width: 100vw;
+    height: 50vh;
+    background-color: #2D2D2D;
+}
