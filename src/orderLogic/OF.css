@@ -1,0 +1,130 @@
+body {
+    overflow-x: hidden;
+    margin: 0;
+}
+/*FIRST SECTION*/
+.order-header {
+    height: 75vh;
+    width: 100vw;
+    background-image: url('/orig_bg.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+/*SECOND SECTION*/
+.order-container-1 {
+    width: 100vw;
+    height: 50vh;
+    margin-top: 75vh;
+    position: relative;
+    background-color: #FDFAED;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.order-now-title{
+    font-family: 'Poppins';
+    font-weight: 400;
+    color: white;
+    text-align: center;
+    margin-top: 100px;
+}
+.order-header h2{
+    font-family: 'Inter';
+    font-weight: 300;
+    color: white;
+    text-align: center;
+}
+/* Progress Bar */
+.progress-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 80%;
+  background: #ffb347;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+/* Individual Steps */
+.progress-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+}
+
+.step-circle {
+  width: 40px;
+  height: 40px;
+  background: #ddd;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: bold;
+  color: #555;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.step-circle.active {
+  background: #4a7c26;
+  color: white;
+}
+
+/* Labels */
+.step-label {
+  margin-top: 5px;
+  font-size: 12px;
+  text-align: center;
+  color: white;
+}
+
+/* Connector Line */
+.step-line {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100px;
+  height: 5px;
+  background: #ddd;
+  transform: translateY(-50%);
+  z-index: -1;
+}
+
+.step-line.active {
+  background: #4a7c26;
+}
+
+/* Navigation Buttons */
+.step-buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  gap: 10px;
+}
+
+.step-buttons button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background: #4a7c26;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+.step-buttons button:hover {
+  background: #3b651f;
+}
+
+.step-buttons button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}

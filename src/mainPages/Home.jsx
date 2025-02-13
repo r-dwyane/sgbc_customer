@@ -1,8 +1,12 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './H.css';
 
 function Home() {
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const openPopup = () => setIsPopupOpen(true);
+  const closePopup = () => setIsPopupOpen(false);
+
   return (
     <>
       <header>
@@ -10,7 +14,7 @@ function Home() {
           <h1 className='business-name'>Samgyeop Grill Box - Cebu</h1>
           <nav>
             <ul className='nav-list'>
-              <li><Link to="/">Home</Link></li>
+              <li className='home'><Link to="/">Home</Link></li>
               <li><Link to="/menu">Menu</Link></li>
               <li><Link to="/about">About</Link></li>
             </ul>
@@ -71,13 +75,68 @@ function Home() {
         <p>Partner with us and start your journey as a reseller! Join now <br/>
         to access exclusive products, great deals, and a supportive <br/>
         community. Grow your business with us today!</p>
-        <button id='reseller-button'> Become a Reseller</button>
+        <button id='reseller-button' onClick={openPopup}> Become a Reseller</button>
       </div>
+      <Popup isOpen={isPopupOpen} closePopup={closePopup} />
 
       <footer>
-        
+        <div className="container-footer">
+          <div className="column-1">
+            <h1>Samgyeop Grill Box</h1>
+            <p>We specialize in authentic Korean samgyeopsal, 
+              <br/>providing freshly cooked side dishes and frozen 
+              <br/>meat for a convenient grilling experience. Our 
+              <br/>dedicated team is committed to professionalism 
+              <br/>and customer satisfaction, ensuring outstanding 
+              <br/>results with every order.</p>
+              <div className="icons">
+                <a href="https://www.facebook.com/samgyeopgrillbox.cc"><img src="/fb_icon.svg" alt="Facebook Link"/></a>
+                <a href="#"><img src="/instagram_icon.svg" alt="Instagram Link"/></a>
+              </div>
+          </div>
+          <div className="column-2">
+            <h1>Contact Us</h1>
+            <p><img src="/location_icon.svg" alt="Location" /> R. Landon Ext. Cebu City</p>
+            <p><img src="/phone_icon.svg" alt="Location" /> 09692521835</p>
+            <p><img src="/email_icon.svg" alt="Location" /> sgbcebu0321@gmail.com</p>
+          </div>
+          <div className="column-3">
+            <h1>Opening Hours</h1>
+            <p>Monday 10:00 AM - 6:00 PM</p>
+            <p>Tuesday 10:00 AM - 6:00 PM</p>
+            <p>Wednesday 10:00 AM - 6:00 PM</p>
+            <p>Thursday 10:00 AM - 6:00 PM</p>
+            <p>Friday 10:00 AM - 6:00 PM</p>
+          </div>
+        </div>
+        <img src="/footer.svg" alt="Copyright" className='footer-img'/>
       </footer>
     </>
+  );
+}
+function Popup({ closePopup, isOpen }) {
+  return (
+    <div className={`popup-overlay ${isOpen ? "show" : ""}`} onClick={closePopup}>
+      <div className="popup-content" onClick={(e) => e.stopPropagation()}>
+        <div className="header">
+          <span className="close-btn" onClick={closePopup}>&times;</span>
+          <h1>Become a Reseller</h1>
+          <h4>You will receive everything included in the box as a full package set.</h4>
+        </div>
+        
+        <img src="/package_1.svg" alt="Reseller Package 1" />
+        <img src="/package_2.svg" alt="Reseller Package 2" />
+
+        <div className="get-started">
+          <h2>REQUIREMENTS:</h2>
+          <p>1. Vacant space/house room of <br/>at least 5-10sqm for sanitary <br/>purposes.</p>
+          <p>2. Refrigerator with freezer.</p>
+          <p>3. Microwave</p>
+          <p>4. Clean table</p>
+        </div>
+        <a href="https://www.facebook.com/samgyeopgrillbox.cc" target='_blank' className='reseller-link'>Get Started &rarr;</a>
+      </div>
+    </div>
   );
 }
 
