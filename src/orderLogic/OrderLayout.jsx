@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link, Outlet, useLocation, useNavigate } from 'react-router-dom';
 import './OF.css';
 
@@ -7,14 +7,23 @@ function OrderLayout() {
   const navigate = useNavigate();
 
   const steps = [
-    { label: "Select Your Order", icon: "📜", route: "/order/select" },
-    { label: "Provide Personal Info", icon: "👤", route: "/order/info" },
-    { label: "Order Summary", icon: "🖼️", route: "/order/summary" },
-    { label: "Order Confirmed", icon: "🧾", route: "/order/receipt" },
+    { label: "Select \nYour Order", icon: "/order_form.svg", route: "/order/select" },
+    { label: "Provide \nPersonal Info", icon: "/personal.svg", route: "/order/info" },
+    { label: "Order \nSummary", icon: "/order_summary.svg", route: "/order/summary" },
+    { label: "Order \nConfirmed", icon: "/receipt.svg", route: "/order/receipt" },
   ];
 
+  // Redirect to step 1 if no step is selected
+  useEffect(() => {
+    if (location.pathname === "/order") {
+      navigate("/order/select");
+    }
+  }, [location.pathname, navigate]);
+
+  // Find the index of the current step
   const currentStep = steps.findIndex(step => step.route === location.pathname) + 1;
 
+  // Navigate to a specific step
   const goToStep = (index) => {
     navigate(steps[index].route);
   };
@@ -37,26 +46,56 @@ function OrderLayout() {
         <h2>Customize Your Order with Your Favorite Add-Ons!</h2>
       </header>
 
+      {/* Progress Bar */}
       <div className="order-container-1">
-        <div className="progress-bar">
-          {steps.map((step, index) => (
-            <div key={index} className="progress-step">
-              <div
-                className={`step-circle ${index + 1 === currentStep ? 'active' : ''}`}
-                onClick={() => goToStep(index)}
-              >
-                {index + 1}
-              </div>
-              <div className="step-label">
-                <span className="step-icon">{step.icon}</span> {step.label}
-              </div>
-              {index < steps.length - 1 && <div className={`step-line ${index + 1 < currentStep ? 'active' : ''}`}></div>}
+      <div className="progress-bar">
+        {steps.map((step, index) => (
+          <div key={index} className="progress-step">
+            {/* Line between steps */}
+            {index > 0 && (
+              <div className={`step-line ${index < currentStep ? 'completed' : ''}`}></div>
+            )}
+
+            {/* Step Circle */}
+            <div
+              className={`step-circle ${
+                index + 1 === currentStep ? 'active' :
+                index + 1 < currentStep ? 'completed' : ''
+              }`}
+              onClick={() => {
+                if (index + 1 < currentStep) {
+                  goToStep(index);
+                }
+              }}
+            >
+              {index + 1 < currentStep ? (
+                <img src="/check.svg" alt="Completed" className="step-check-icon" />
+              ) : (
+                index + 1
+              )}
             </div>
-          ))}
-        </div>
+
+            <div className="step-label">
+              {step.icon.startsWith("/") ? (
+                <img src={step.icon} alt="Step Icon" className="step-icon-img" />
+              ) : (
+                <span className="step-icon">{step.icon}</span>
+              )}
+              <span className="step-text">
+                {step.label.split("\n").map((line, idx) => (
+                  <React.Fragment key={idx}>
+                    {line}
+                    <br />
+                  </React.Fragment>
+                ))}
+              </span>
+            </div>
+          </div>
+        ))}
+      </div>
       </div>
 
-      <Outlet /> 
+      <Outlet />
 
       <div className="step-buttons">
         <button onClick={() => goToStep(currentStep - 2)} disabled={currentStep === 1}>Prev</button>
