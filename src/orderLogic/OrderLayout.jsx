@@ -46,7 +46,6 @@ function OrderLayout() {
         <h2>Customize Your Order with Your Favorite Add-Ons!</h2>
       </header>
 
-      {/* Progress Bar */}
       <div className="order-container-1">
       <div className="progress-bar">
         {steps.map((step, index) => (
