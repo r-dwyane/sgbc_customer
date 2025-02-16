@@ -1,0 +1,189 @@
+.summary-body{
+    margin: 0 10vw;
+    display: flex;
+    gap: 30px;
+}
+.summary-container{
+    position: relative;
+    overflow-y: auto;
+    overflow-x: hidden;
+    min-height: 850px;
+    width: 50vw;
+    background-color: #FFFFFF;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    padding: 30px;
+}
+.summary-container h1{
+    font-family: 'Poppins';
+    font-weight: 600;
+    font-size: 24px;
+    color: #393939;
+}
+.summary-container h2{
+    font-family: 'Inter';
+    font-weight: 500;
+    font-size: 18px;
+    color: #393939;
+}
+.summary-container h3{
+    font-family: 'Inter';
+    font-weight: 550;
+    font-size: 18px;
+    color: #FFAE42;
+}
+.summary-container h4{
+    font-family: 'Inter';
+    font-weight: 550;
+    font-size: 18px;
+    color: #393939;
+}
+.payment-details{
+    background-color: #FFAE42;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 91%;
+    padding: 30px;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+}
+.payment-details h1{
+    color: white;
+}
+.payment-details h5{
+    color: white;
+    font-family: 'Inter';
+    font-weight: 500;
+}
+.payment-details h5 span{
+    color: white;
+    font-family: 'Inter';
+    font-weight: 550;
+}
+.summary-container2{
+    height: 550px;
+    width: 30vw;
+}
+.address-container{
+    padding: 20px;
+    background-color: #FFFFFF;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+}
+.address-container h2, .mop-container h2{
+    font-family: 'Poppins';
+    font-weight: 600;
+    color: #393939;
+    margin: 0;
+}
+.address-container h4{
+    font-family: 'Inter';
+    font-weight: 600;
+    color: #393939;
+    opacity: 0.9;
+    margin-bottom: 0;
+}
+.address-container p{
+    font-family: 'Inter';
+    font-weight: 500;
+    color: #393939;
+    opacity: 0.7;
+    margin-top: 0;
+    line-height: 30px;
+}
+.location{
+    height: 250px;
+    width: 100%;
+    background-color: gray;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+.mop-container{
+    padding: 20px;
+    background-color: #FFFFFF;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    margin-top: 20px;
+}
+.mop-container h4{
+    font-family: 'Inter';
+    font-weight: 500;
+    color: #393939;
+    opacity: 0.7;
+    margin-top: 0;
+    line-height: 30px;
+}
+.payment-options {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    font-family: 'Inter';
+    color: #393939;
+}
+.payment-option {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    font-size: 16px;
+    position: relative;
+}
+.payment-option input {
+    display: none;
+}
+.payment-icon {
+    width: 28px;
+    height: 28px;
+}
+.radio-circle {
+    width: 22px;
+    height: 22px;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.5s ease;
+}
+.check-icon {
+    width: 25px;
+    height: 25px;
+}
+.payment-option.active {
+    border-color: orange;
+}
+.payment-option.active .radio-circle {
+    background-color: white;
+    border-color: white;
+}
+.confirm-button{
+    font-family: 'Inter';
+    font-weight: 600;
+    font-size: 15px;
+    background-color: #FFAE42;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 20px;
+    padding: 15px;
+    width: 100%;
+    transition: all 0.3s ease-in-out;
+}
+.confirm-button:hover{
+    background-color: #e79b37;
+}
+.terms{
+    text-align: center;
+    font-family: 'Inter';
+    color: #393939;
+}
+.terms u{
+    cursor: pointer;
+    font-weight: bold;
+}

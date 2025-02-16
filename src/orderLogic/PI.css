@@ -1,3 +1,79 @@
 .personal-body{
     margin: 0 10vw;
+    display: flex;
+}
+.map{
+    background-color: gray;
+    width: 500px;
+    height: 525px;
+    border-radius: 10px;
+}
+.personal-column{
+    margin-left: 50px;
+}
+.personal-column h1{
+    font-family: 'Poppins';
+    font-weight: 450;
+    color: #FFAE42;
+    margin-bottom: 0;
+}
+.personal-column p{
+    font-family: 'Inter';
+    font-weight: 400;
+    color: #47392E;
+    margin-top: 0;
+}
+.personal-column input {
+    width: 80%;
+    border: none; 
+    border-bottom: 0.85px solid #47392E;
+    background: none;
+    margin-top: 10px;
+    padding: 10px;
+    outline: none; 
+    font-family: 'Inter';
+}
+.personal-column input:focus{
+    border-bottom: 0.85px solid #FFAE42;
+    outline: none;
+}
+.personal-column input::placeholder{
+    color: #47392E;
+    opacity: 0.7;
+}
+.button-row{
+    margin-top: 30px;
+    display: flex;
+    gap: 30px;
+}
+.current{
+    font-family: 'Inter';
+    font-weight: bold;
+    font-size: 15px;
+    color: #1A1A1A;
+    border: 0.79px solid #1A1A1A;
+    border-radius: 8px;
+    cursor: pointer;
+    padding: 15px;
+    background: none;
+    transition: all 0.3s ease-in-out;
+}
+.current:hover{
+    transform: scale(1.025);
+}
+.next{
+    font-family: 'Inter';
+    font-weight: 600;
+    font-size: 15px;
+    background-color: #FFAE42;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    padding: 15px;
+    width: 125px;
+    transition: all 0.3s ease-in-out;
+}
+.next:hover{
+    background-color: #e79b37;
 }
