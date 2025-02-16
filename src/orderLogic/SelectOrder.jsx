@@ -44,7 +44,7 @@ function SelectOrder() {
           <img src="/plus.svg" alt="Plus" onClick={increment}/>
         </div>
       </div>
-      <hr/>
+      <hr className='line'/>
       <div className="row-2">
         <h2>Choose Meat Variant: <span className='reg-meat'>{remainingMeats}</span></h2>
         <div className="meats">
@@ -56,7 +56,7 @@ function SelectOrder() {
           ))}
         </div>
       </div>
-      <hr/>
+      <hr className='line'/>
       <div className="selected-meats">
         <h2>Selected Meats:</h2>
         {selectedMeats.map((meat, index) => (
