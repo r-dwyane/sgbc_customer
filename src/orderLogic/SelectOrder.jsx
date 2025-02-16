@@ -1,11 +1,31 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './SO.css';
 
 function SelectOrder() {
-  const [regularCount, setRegularCount] = useState(0);
-  const [premiumCount, setPremiumCount] = useState(0);
-  const [selectedMeats, setSelectedMeats] = useState([]);
+  const navigate = useNavigate();
+  const proceedToCheckout = () => {
+    navigate('/order/info');
+  };
 
+  const [regularCount, setRegularCount] = useState(() => 
+    JSON.parse(localStorage.getItem('regularCount')) || 0
+  );
+  const [premiumCount, setPremiumCount] = useState(() => 
+    JSON.parse(localStorage.getItem('premiumCount')) || 0
+  );
+  const [selectedMeats, setSelectedMeats] = useState(() => 
+    JSON.parse(localStorage.getItem('selectedMeats')) || []
+  );
+  const [addonCounts, setAddonCounts] = useState(() => 
+    JSON.parse(localStorage.getItem('addonCounts')) || {
+      Kimchi: 0, Lettuce: 0, "Potato Marbles": 0, Fishcake: 0, Corn: 0, Seaweed: 0,
+    }
+  );
+  
+  const [showPopup, setShowPopup] = useState(false);
+  const [popupContent, setPopupContent] = useState(null);
+  
   const meats = [
     { id: 1, name: 'Pork Galbi', img: '/pork_galbi.svg' },
     { id: 2, name: 'Pork Bulgogi', img: '/pork_bulgogi.svg' },
@@ -13,6 +33,15 @@ function SelectOrder() {
     { id: 4, name: 'Beef Bulgogi', img: '/beef_bulgogi.svg' },
     { id: 5, name: 'Pork Spicy', img: '/pork_spicy.svg' }
   ];
+
+  const regularPrice = 269;
+  const premiumPrice = 379;
+  const addonPrice = 30;
+
+  const totalRegularPrice = regularCount * regularPrice;
+  const totalPremiumPrice = premiumCount * premiumPrice;
+  const totalAddonPrice = Object.values(addonCounts).reduce((acc, count) => acc + count * addonPrice, 0);
+  const totalPrice = totalRegularPrice + totalPremiumPrice + totalAddonPrice;
 
   const maxRegularMeats = regularCount;
   const maxPremiumMeats = premiumCount > 0 ? premiumCount * 2 : 0;
@@ -38,12 +67,27 @@ function SelectOrder() {
     }
   };
 
+  // Add Ons Controls
+  const handleIncrement = (addon) => {
+    setAddonCounts((prevCounts) => ({
+      ...prevCounts,
+      [addon]: prevCounts[addon] + 1,
+    }));
+  };
+  const handleDecrement = (addon) => {
+    setAddonCounts((prevCounts) => ({
+      ...prevCounts,
+      [addon]: prevCounts[addon] > 0 ? prevCounts[addon] - 1 : 0,
+    }));
+  };
+
   // Add Meat
   const addMeat = (meat, type) => {
     const countInBox = selectedMeats.filter(m => m.type === type).length;
     if ((type === "Regular" && countInBox < maxRegularMeats) || (type === "Premium" && countInBox < maxPremiumMeats)) {
       setSelectedMeats([...selectedMeats, { ...meat, type }]);
-      alert(`${meat.name} added to ${type} Box!`);
+      setPopupContent(meat);
+      setShowPopup(true);
     }
   };
 
@@ -59,9 +103,33 @@ function SelectOrder() {
     }
     setSelectedMeats(updatedMeats);
   };
+  
+  useEffect(() => {
+    localStorage.setItem('regularCount', JSON.stringify(regularCount));
+    localStorage.setItem('premiumCount', JSON.stringify(premiumCount));
+    localStorage.setItem('selectedMeats', JSON.stringify(selectedMeats));
+    localStorage.setItem('addonCounts', JSON.stringify(addonCounts));
+  }, [regularCount, premiumCount, selectedMeats, addonCounts]);
+
+  useEffect(() => {
+    if (showPopup) {
+      const timer = setTimeout(() => {
+        setShowPopup(false);
+      }, 3000);
+  
+      return () => clearTimeout(timer);
+    }
+  }, [showPopup]);
 
   return (
     <div className="select-body">
+      {showPopup && (
+        <div className={`meat-popup-content ${!showPopup ? 'fade-out' : ''}`}>
+          <div><img src="/white_check.svg" alt="Check"/></div>
+          <span>Meat variant selected</span>
+        </div>
+      )}
+
       {/* REGULAR BOX */}
       <div className="row-1">
         <img src="/box_img.svg" alt="Regular Box" />
@@ -147,97 +215,59 @@ function SelectOrder() {
         <hr className="divider" />
 
         <div className="add-ons-container">
-          <h2>Add-ons</h2>
-          <div className="whole-section">
-            {/*KIMCHI - LETTUCE - POTATO MARBLES*/}
-            <div className="column-1">
-              <div className="kimchi">
-                <img src="/kimchi.svg" alt="Kimchi"/>
+        <h2>Add-ons</h2>
+        <div className="whole-section">
+          {/* KIMCHI - LETTUCE - POTATO MARBLES */}
+          <div className="column-1">
+            {['Kimchi', 'Lettuce', 'Potato Marbles'].map((addon) => (
+              <div className="kimchi" key={addon}>
+                <img src={`/${addon.toLowerCase().replace(/ /g, '_')}.svg`} alt={addon} />
                 <section>
-                  <h4>Kimchi 30g</h4>
+                  <h4>{addon} 30g</h4>
                   <span className='addons-price'>₱ 30.00</span>
                   <div className="counter-addons">
-                    <img src="/minus.svg" alt="Minus"/>
-                    <span>1</span>
-                    <img src="/plus.svg" alt="Plus"/>
+                    <img src="/minus.svg" alt="Minus" onClick={() => handleDecrement(addon)} />
+                    <span>{addonCounts[addon]}</span>
+                    <img src="/plus.svg" alt="Plus" onClick={() => handleIncrement(addon)} />
                   </div>
                 </section>
               </div>
-
-              <div className="kimchi">
-                <img src="/lettuce.svg" alt="Lettuce"/>
-                <section>
-                  <h4>Lettuce 30g</h4>
-                  <span className='addons-price'>₱ 30.00</span>
-                  <div className="counter-addons">
-                    <img src="/minus.svg" alt="Minus"/>
-                    <span>1</span>
-                    <img src="/plus.svg" alt="Plus"/>
-                  </div>
-                </section>
-              </div>
-
-              <div className="kimchi">
-                <img src="/potatoes.svg" alt="Potato Marbles"/>
-                <section>
-                  <h4>Potato Marbles 30g</h4>
-                  <span className='addons-price'>₱ 30.00</span>
-                  <div className="counter-addons">
-                    <img src="/minus.svg" alt="Minus"/>
-                    <span>1</span>
-                    <img src="/plus.svg" alt="Plus"/>
-                  </div>
-                </section>
-              </div>
-            </div>
-
-            {/*FISHCAKE - CORN - SEAWEED*/}
-            <div className="column-1">
-              <div className="kimchi">
-                <img src="/fishcake.svg" alt="Fishcake"/>
-                <section>
-                  <h4>Fishcake 30g</h4>
-                  <span className='addons-price'>₱ 30.00</span>
-                  <div className="counter-addons">
-                    <img src="/minus.svg" alt="Minus"/>
-                    <span>1</span>
-                    <img src="/plus.svg" alt="Plus"/>
-                  </div>
-                </section>
-              </div>
-
-              <div className="kimchi">
-                <img src="/corn.svg" alt="Corn"/>
-                <section>
-                  <h4>Corn 30g</h4>
-                  <span className='addons-price'>₱ 30.00</span>
-                  <div className="counter-addons">
-                    <img src="/minus.svg" alt="Minus"/>
-                    <span>1</span>
-                    <img src="/plus.svg" alt="Plus"/>
-                  </div>
-                </section>
-              </div>
-
-              <div className="kimchi">
-                <img src="/seaweed.svg" alt="Seaweed"/>
-                <section>
-                  <h4>Seaweed 30g</h4>
-                  <span className='addons-price'>₱ 30.00</span>
-                  <div className="counter-addons">
-                    <img src="/minus.svg" alt="Minus"/>
-                    <span>1</span>
-                    <img src="/plus.svg" alt="Plus"/>
-                  </div>
-                </section>
-              </div>
-            </div>
+            ))}
           </div>
-          
+
+          {/* FISHCAKE - CORN - SEAWEED */}
+          <div className="column-1">
+            {['Fishcake', 'Corn', 'Seaweed'].map((addon) => (
+              <div className="kimchi" key={addon}>
+                <img src={`/${addon.toLowerCase().replace(/ /g, '_')}.svg`} alt={addon} />
+                <section>
+                  <h4>{addon} 30g</h4>
+                  <span className='addons-price'>₱ 30.00</span>
+                  <div className="counter-addons">
+                    <img src="/minus.svg" alt="Minus" onClick={() => handleDecrement(addon)} />
+                    <span>{addonCounts[addon]}</span>
+                    <img src="/plus.svg" alt="Plus" onClick={() => handleIncrement(addon)} />
+                  </div>
+                </section>
+              </div>
+            ))}
+          </div>
         </div>
+      </div>
       </div>
 
       <hr className="line" />
+
+      <div className="select-body">
+      <div className="total-container">
+        <h4>Premium Box: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;₱{totalPremiumPrice.toLocaleString()}</h4>
+        <h4>Regular Box: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ₱{totalRegularPrice.toLocaleString()}</h4>
+        <h4>Add Ons: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   ₱{totalAddonPrice.toLocaleString()}</h4>
+        <hr className="equal-line" />
+        <h2>Total: ₱{totalPrice.toLocaleString()}</h2>
+        <button className='checkout' onClick={proceedToCheckout}>Proceed to Checkout</button>
+      </div>
+    </div>
     </div>
   );
 }
