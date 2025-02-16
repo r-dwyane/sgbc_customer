@@ -1,0 +1,96 @@
+.select-body{
+    margin: 0 10vw;
+}
+.row-1 {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    position: relative;
+}
+.row-1 div{
+    margin-left: 30px;
+}
+.row-1 h2{
+    font-family: 'Poppins';
+    font-weight: 400;
+    color: #47392E;
+}
+.row-1 h4{
+    font-family: 'Inter';
+    font-weight: 600;
+    color: #1A1A1A;
+}
+hr{
+    margin: 20px 0;
+    opacity: 0.5;
+    width: 100%;
+}
+.counter {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    position: absolute;
+    right: 10%;
+    color: #47392E;
+    font-family: 'Inter';
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.meats {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.meat-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+    width: 120px;
+    text-align: center;
+}
+
+.meat-card img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+
+.meat-card:hover {
+    background-color: #f8f8f8;
+}
+
+.selected-meats {
+    margin-top: 20px;
+}
+
+.selected-meat {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #fff3e0;
+}
+
+.selected-meat button {
+    background-color: #ff6b6b;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.selected-meat button:hover {
+    background-color: #d9534f;
+}
