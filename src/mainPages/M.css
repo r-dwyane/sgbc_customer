@@ -1,0 +1,39 @@
+body {
+    overflow-x: hidden;
+    margin: 0;
+}
+/*FIRST SECTION*/
+.menu-header {
+    height: 75vh;
+    width: 100vw;
+    background-image: url('/orig_bg.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+/*SECOND SECTION*/
+.menu-container-1 {
+    width: 100vw;
+    height: 50vh;
+    margin-top: 75vh;
+    position: relative;
+    background-color: #FDFAED;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.menu-now-title{
+    font-family: 'Poppins';
+    font-weight: 400;
+    color: white;
+    text-align: center;
+    margin-top: 100px;
+}
+.menu-header h2{
+    font-family: 'Inter';
+    font-weight: 300;
+    color: white;
+    text-align: center;
+}
