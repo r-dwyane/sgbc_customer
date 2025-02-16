@@ -1,30 +1,3 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import './AU.css';
-
-function AboutUs() {
-  return (
-    <>
-      <header className='about-header'>
-        <div className="nav-container">
-          <h1 className='business-name'>Samgyeop Grill Box - Cebu</h1>
-          <nav>
-            <ul className='nav-list'>
-              <li><Link to="/">Home</Link></li>
-              <li><Link to="/menu">Menu</Link></li>
-              <li><Link to="/about">About</Link></li>
-            </ul>
-          </nav>
-        </div>
-        <hr />
-        <h1 className='about-now-title'>About Us</h1>
-        <h2>Learn more about our mission, values, and the work we do.</h2>
-      </header>
-
-      <div className="about-container-1">
-      </div>
-    </>
-  );
-}
-
-export default AboutUs;
+version https://git-lfs.github.com/spec/v1
+oid sha256:e655dad8ec4e5d98bbf0f3b6fcbdd612a3d7c6163ad4a078de60fef615221539
+size 822

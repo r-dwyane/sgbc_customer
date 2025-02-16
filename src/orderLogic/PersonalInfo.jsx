@@ -1,13 +1,3 @@
-import React from 'react';
-import './PI.css';
-
-function PersonalInfo() {
-  return (
-    <div className='personal-body'>
-      <h1>Step 2: Provide Personal Info</h1>
-      <p>Enter your contact details and delivery address.</p>
-    </div>
-  );
-}
-
-export default PersonalInfo;
+version https://git-lfs.github.com/spec/v1
+oid sha256:c4cf7a5eb9ce27ea89f0ba54a8c245083105c4bb913f5590ee2b96bd3c1683bc
+size 288
