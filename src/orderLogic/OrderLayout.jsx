@@ -1,10 +1,11 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, Outlet, useLocation, useNavigate } from 'react-router-dom';
 import './OF.css';
 
 function OrderLayout() {
   const location = useLocation();
   const navigate = useNavigate();
+  const [isLoading, setIsLoading] = useState(false);
 
   const steps = [
     { label: "Select \nYour Order", icon: "/order_form.svg", route: "/order/select" },
@@ -25,9 +26,17 @@ function OrderLayout() {
 
   // Navigate to a specific step
   const goToStep = (index) => {
+    setIsLoading(true); // Show loader when navigating
     navigate(steps[index].route);
   };
 
+  // Show loader when changing pages
+  useEffect(() => {
+    setIsLoading(true);
+    const timer = setTimeout(() => setIsLoading(false), 500); // Simulate load time
+    return () => clearTimeout(timer);
+  }, [location.pathname]);
+  
   return (
     <>
       <header className='order-header'>
@@ -94,12 +103,53 @@ function OrderLayout() {
       </div>
       </div>
 
-      <Outlet />
+      {/* Loader Component */}
+      {isLoading ? (
+        <div className="loader-container">
+          <div className="spinner"></div>
+        </div>
+      ) : (
+        <Outlet />
+      )}
 
       <div className="step-buttons">
         <button onClick={() => goToStep(currentStep - 2)} disabled={currentStep === 1}>Prev</button>
         <button onClick={() => goToStep(currentStep)} disabled={currentStep === 4}>Next</button>
       </div>
+
+      <footer>
+        <div className="container-footer">
+          <div className="column-1">
+            <h1>Samgyeop Grill Box</h1>
+            <p>We specialize in authentic Korean samgyeopsal, 
+              <br/>providing freshly cooked side dishes and frozen 
+              <br/>meat for a convenient grilling experience. Our 
+              <br/>dedicated team is committed to professionalism 
+              <br/>and customer satisfaction, ensuring outstanding 
+              <br/>results with every order.</p>
+              <div className="icons">
+                <a href="https://www.facebook.com/samgyeopgrillbox.cc"><img src="/fb_icon.svg" alt="Facebook Link"/></a>
+                <a href="#"><img src="/instagram_icon.svg" alt="Instagram Link"/></a>
+              </div>
+          </div>
+          <div className="column-2">
+            <h1>Contact Us</h1>
+            <p><img src="/location_icon.svg" alt="Location" /> R. Landon Ext. Cebu City</p>
+            <p><img src="/phone_icon.svg" alt="Location" /> 09692521835</p>
+            <p><img src="/email_icon.svg" alt="Location" /> sgbcebu0321@gmail.com</p>
+          </div>
+          <div className="column-3">
+            <h1>Opening Hours</h1>
+            <p>Monday 10:00 AM - 6:00 PM</p>
+            <p>Tuesday 10:00 AM - 6:00 PM</p>
+            <p>Wednesday 10:00 AM - 6:00 PM</p>
+            <p>Thursday 10:00 AM - 6:00 PM</p>
+            <p>Friday 10:00 AM - 6:00 PM</p>
+          </div>
+        </div>
+        <img src="/footer.svg" alt="Copyright" className='footer-img'/>
+      </footer>
+      
     </>
   );
 }

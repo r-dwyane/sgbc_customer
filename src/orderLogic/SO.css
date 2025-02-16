@@ -271,7 +271,7 @@
 }
 .checkout {
     display: block;
-    width: 205px;
+    width: 100%;
     padding: 1rem;
     font-family: 'Inter', sans-serif;
     font-size: 14px;
@@ -300,6 +300,7 @@
     align-items: center;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     opacity: 1;
+    animation: fade 0.3s normal;
     transition: all 0.5s ease-in-out;
     z-index: 1;
     padding-right: 12px;
@@ -317,4 +318,8 @@
 .meat-popup-content img{
     width: 24px;
     height: 24px;
+}
+@keyframes fade{
+    0% { opacity: 0;}
+    100% { opacity: 1;}
 }
