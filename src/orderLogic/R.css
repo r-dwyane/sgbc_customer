@@ -1,0 +1,127 @@
+.receipt-body {
+    margin: 0 25vw;
+}
+.receipt-container {
+    background: white;
+    padding: 20px 30px;
+    width: 650px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+.receipt-container h1 {
+    font-family: 'Poppins';
+    font-size: 24px;
+    font-weight: 600;
+    color: #393939;
+}
+.receipt-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Kumbh Sans';
+    font-size: 14px;
+    color: #5B5B5B;
+}
+.download-icon {
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    transition: all 0.3s ease-in-out;
+}
+.download-icon:hover {
+    scale: 1.1;
+}
+.receipt-info {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Montserrat';
+    font-weight: 500;
+    color: #5B5B5B;
+}
+.order-details h2 {
+    font-family: 'Poppins';
+    font-size: 24px;
+    font-weight: 600;
+    color: #393939;
+}
+.order-details h3 {
+    margin-top: 15px;
+    color: #e09132;
+    font-family: 'Montserrat';
+    font-size: 16px;
+    font-weight: 600;
+}
+.payment-summary {
+    margin-top: 40px;
+    font-family: 'Montserrat';
+    color: #1A1A1A;
+}
+.payment-summary span{
+    position: absolute;
+    right: 40px;
+}
+.timestamp {
+    font-size: 12px;
+    font-family: 'Montserrat';
+    color: gray;
+    margin-top: 10px;
+}
+table {
+    width: 100%;
+    margin-top: 5px;
+    border-collapse: collapse;
+    text-align: left;
+}
+th, td {
+    padding: 8px;
+    font-family: 'Montserrat';
+    font-size: 14px;
+}
+th {
+    color: #393939;
+    font-weight: 600;
+    text-align: center;
+}
+td {
+    color: #5B5B5B;
+}
+.receipt-line {
+    border: 0;
+    height: 2px;
+    background: #5B5B5B;
+    margin: 15px 0;
+    opacity: 0.5;
+}
+table td, table th {
+    width: auto;
+    word-wrap: break-word;
+}
+.confirmation{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Inter';
+    margin-top: 20px;
+    gap: 30px;
+}
+.confirmation h2{
+    font-size: 16px;
+    color: #393939;
+}
+.confirmation button{
+    font-family: 'Inter';
+    font-weight: 600;
+    font-size: 15px;
+    background-color: #FFAE42;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    padding: 15px;
+    width: 150px;
+    transition: all 0.3s ease-in-out;
+}
+.confirmation button:hover{
+    background-color: #e79b37;
+}

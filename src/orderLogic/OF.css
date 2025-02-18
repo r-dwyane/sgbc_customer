@@ -1,5 +1,6 @@
 body {
     overflow-x: hidden;
+    overflow-y: auto;
     margin: 0;
 }
 /*FIRST SECTION*/
@@ -147,7 +148,7 @@ body {
 /*FOOTER SECTION*/
 footer {
   position: relative;
-  margin-top: 40vh;
+  margin-top: 45vh;
   width: 100vw;
   height: 75vh;
   background-color: #2D2D2D;
