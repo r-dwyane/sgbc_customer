@@ -47,19 +47,21 @@
 }
 .order-details h3 {
     margin-top: 15px;
+    margin-bottom: 0;
     color: #e09132;
     font-family: 'Montserrat';
     font-size: 16px;
     font-weight: 600;
 }
 .payment-summary {
-    margin-top: 40px;
+    margin-top: 20px;
     font-family: 'Montserrat';
     color: #1A1A1A;
 }
 .payment-summary span{
     position: absolute;
-    right: 40px;
+    left: 75%;
+    text-align: left;
 }
 .timestamp {
     font-size: 12px;
