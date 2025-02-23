@@ -63,7 +63,7 @@
     display: flex;
     gap: 20px;
     flex-wrap: wrap;
-    margin-left: 40px;
+    justify-content: center;
     animation: slideUp 0.6s ease-out forwards;
 }
 .meat-card {
@@ -256,8 +256,8 @@
 .form-group {
     position: relative;
     width: 100%;
-    max-width: 205px;
     font-family: 'Montserrat';
+    margin: 15px 0;
 }
 #promo-code {
     width: 100%;

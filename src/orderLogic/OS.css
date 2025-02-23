@@ -12,12 +12,15 @@
     margin: 0 10vw;
     display: flex;
     gap: 30px;
+    background-color: #FDFAED;
+    scrollbar-width: thin;
+    scrollbar-color: #FFAE42 transparent;
 }
 .summary-container {
     position: relative;
     overflow-y: auto;
     overflow-x: hidden;
-    min-height: 950px;
+    min-height: 1000px;
     max-height: 90vh;
     width: 50vw;
     background-color: #FFFFFF;
@@ -60,7 +63,7 @@
     position: sticky;
     bottom: 0;
     left: 0;
-    width: 100vw;
+    width: 100%;
     padding: 30px;
     border-top-right-radius: 20px;
     border-top-left-radius: 20px;
@@ -75,6 +78,11 @@
     color: white;
     font-family: 'Inter';
     font-weight: 500;
+}
+.payment-details h5 span{
+    position: absolute;
+    left: 70%;
+    font-size: 14px;
 }
 .payment-details h5 span{
     color: white;
@@ -119,6 +127,9 @@
     background-color: gray;
     border-radius: 12px;
     margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .mop-container{
     padding: 20px;
@@ -203,15 +214,47 @@
 .terms{
     text-align: center;
     font-family: 'Inter';
+    font-size: 14px;
     color: #393939;
 }
 .terms u{
     cursor: pointer;
     font-weight: bold;
 }
-table{
+.summary-table {
+    width: 90%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+.summary-table td, .summary-table th {
+    padding: 10px;
+    text-align: center;
+}
+.summary-table td:nth-child(1) {
+    width: 10%;
+}
+.summary-table td:nth-child(2) { 
+    width: 40%;
+    text-align: left;
+}
+.summary-table td:nth-child(3) {
+    width: 30%;
+    text-align: left;
+}
+.summary-table td:nth-child(4) {
+    width: 20%;
+    font-weight: bold;
+}
+td button{
+    background: none;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
     font-family: 'Inter';
-    margin-left: 30px;
+    font-weight: bolder;
+    width: 5px;
+    color: #393939;
 }
 /* POP UP */
 .popup-overlay {

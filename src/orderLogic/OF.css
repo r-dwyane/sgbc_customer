@@ -2,6 +2,7 @@ body {
     overflow-x: hidden;
     overflow-y: auto;
     margin: 0;
+    background-color: #FDFAED;
 }
 /*FIRST SECTION*/
 .order-header {
@@ -148,7 +149,7 @@ body {
 /*FOOTER SECTION*/
 footer {
   position: relative;
-  margin-top: 45vh;
+  margin-top: 50vh;
   width: 100vw;
   height: 75vh;
   background-color: #2D2D2D;
