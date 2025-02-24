@@ -2,8 +2,6 @@
     margin: 0 25vw;
 }
 .receipt-container {
-    background: white;
-    padding: 20px 30px;
     width: 650px;
     border-radius: 10px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
@@ -14,6 +12,11 @@
     font-size: 24px;
     font-weight: 600;
     color: #393939;
+}
+.receipt{
+    background-color: white;
+    padding: 20px 30px;
+    border-radius: 20px;
 }
 .receipt-header {
     display: flex;
@@ -39,6 +42,9 @@
     font-weight: 500;
     color: #5B5B5B;
 }
+.customer-info{
+    width: 350px;
+} 
 .order-details h2 {
     font-family: 'Poppins';
     font-size: 24px;
@@ -106,6 +112,7 @@ table td, table th {
     font-family: 'Inter';
     margin-top: 20px;
     gap: 30px;
+    width: 100%;
 }
 .confirmation h2{
     font-size: 16px;
@@ -126,4 +133,33 @@ table td, table th {
 }
 .confirmation button:hover{
     background-color: #e79b37;
+}
+.receipt-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    margin-top: 10px;
+    table-layout: fixed;
+    margin-left: 10px;
+}
+
+.receipt-table td {
+    padding: 10px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    color: #5B5B5B;
+}
+
+.receipt-table td:nth-child(1) { 
+    width: 40%;
+}
+
+.receipt-table td:nth-child(2) { 
+    width: 20%;
+    text-align: left;
+}
+
+.receipt-table td:nth-child(3) { 
+    width: 25%;
+    text-align: center;
 }
