@@ -349,10 +349,10 @@ td button{
     margin-top: 5px;
     transition: all 0.3s ease-in-out;
 }
-.confirm-button:order{
+.confirm-order:hover{
     background-color: #e79b37;
 }
-.loader {
+.loader-button {
     border: 3px solid #f3f3f3;
     border-top: 3px solid #FF8251;
     border-radius: 50%;
@@ -365,4 +365,51 @@ td button{
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
+}
+.gcash-popup-content {
+    background: #fff;
+    padding: 50px;
+    width: 100%;
+    max-width: 500px;
+    border-radius: 20px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    position: relative;
+    padding-bottom: 20px;
+    transform: scale(0.8);
+    opacity: 0;
+    transition: transform 0.25s ease-in-out, opacity 0.25s ease-in-out;
+    font-family: 'Inter';
+}
+.popup-overlay.show .gcash-popup-content {
+    transform: scale(1);
+    opacity: 1;
+}
+.gcash-popup-content h1{
+    text-align: center;
+    font-family: 'Inter';
+    color: #1A1A1A;
+}
+.gcash-popup-content h4{
+    text-align: center;
+    font-family: 'Inter';
+    color: #1A1A1A;
+    opacity: 0.5;
+}
+.gcash-popup-content span{
+    font-family: 'Inter';
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    z-index: 1;
+    color: #FFAE42;
+    cursor: pointer;
+}
+.gcash-popup-content p{
+    font-family: 'Inter';
+    font-weight: 400;
+    color: #1A1A1A;
+    line-height: 30px;
+}
+.gcash-popup-content p b{
+    color: #393939;
 }

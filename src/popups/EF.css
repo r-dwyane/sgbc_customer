@@ -1,0 +1,82 @@
+@keyframes popUp {
+    0% {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes popDown {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+}
+.empty-overlay {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;
+}
+.empty-overlay.show {
+    opacity: 1;
+    visibility: visible;
+}
+.empty-content {
+    font-family: 'Inter';
+    background-color: #FDFAED;
+    color: #FF8251;
+    padding: 50px;
+    text-align: center;
+    border-radius: 20px;
+    border: solid 1px #FFAE42;
+    transform: scale(0.8);
+    opacity: 0;
+    transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
+}
+.empty-content.show {
+    animation: popUp 0.2s ease-in-out forwards;
+}
+.empty-content.hide {
+    animation: popDown 0.2s ease-in-out forwards;
+}
+.empty-content h2, .empty-content h5{
+    font-weight: 500;
+}
+.empty-content button {
+    font-family: 'Inter';
+    font-size: 16px;
+    background-color: #FFAE42;
+    color: #FDFAED;
+    padding: 12px 20px;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    width: 300px;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+}
+.empty-content button:hover {
+    background-color: #df973a;
+}
+.empty-content img {
+    width: 100px;
+    height: 100px;
+}
