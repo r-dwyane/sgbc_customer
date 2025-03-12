@@ -74,20 +74,29 @@
     color: white;
     margin-left: 0;
 }
-.payment-details h5{
+.payment-details h4{
     color: white;
     font-family: 'Inter';
     font-weight: 500;
+    margin: 0;
 }
-.payment-details h5 span{
-    position: absolute;
-    left: 70%;
-    font-size: 14px;
-}
-.payment-details h5 span{
+.payment-details h2{
     color: white;
     font-family: 'Inter';
-    font-weight: 550;
+    font-weight: 700;
+    font-size: 20px;
+    margin: 0;
+}
+.payment-details h4 span{
+    position: absolute;
+    left: 70%;
+    font-size: 16px;
+}
+.payment-details h2 span{
+    position: absolute;
+    left: 70%;
+    font-size: 20px;
+    font-weight: 700;
 }
 .summary-container2{
     height: 550px;
