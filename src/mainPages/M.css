@@ -248,6 +248,26 @@ body {
     color: #666;
     margin-top: 10px;
     font-family: 'Poppins';
-  }
+}
+.order-now {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    text-decoration: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    border: none;
+    background-color: #FFAE42;
+    cursor: pointer;
+    transition: 0.25s ease-in-out;
+    display: inline-block;
+    margin-left: 75px;
+}
+.order-now a{
+    text-decoration: none;
+    color: white;
+}
+.order-now:hover {
+    background-color: #eb982b;
+}
   
   

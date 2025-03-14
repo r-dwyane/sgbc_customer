@@ -30,7 +30,7 @@
     height: 100%;
     background: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(5px);
-    z-index: 1000;
+    z-index: 999999;
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;
@@ -40,6 +40,7 @@
     visibility: visible;
 }
 .empty-content {
+    max-width: 400px;
     font-family: 'Inter';
     background-color: #FDFAED;
     color: #FF8251;
