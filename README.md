@@ -12,7 +12,7 @@ A web platform built for Samgyeop Grill Box Cebu—a Korean food delivery servic
 - **Delivery Area Check**  
   Enter address to confirm service availability  
 - **SMS Confirmation**  
-  Automated SMS sent when order is placed or updated  
+  SMS sent when order is placed or updated  
 - **Chatbot Assistant (Samgy AI)**  
   AI chat for menu help, order status, and FAQs  
 - **Admin Dashboard**  
